@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
+{% load static %}
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,9 @@
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://myluna.su/styles/music.css">
   <link rel="shortcut icon" href="https://music.myluna.su/assets/ico.png" type="image/x-icon">
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="{% static "style.css" %}">
   <title>Вход</title>
 </head>
-
 <body>
   <div class="login-page">
     <div class="form">
