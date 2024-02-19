@@ -2,7 +2,12 @@ from django.shortcuts import render
 import requests
 from yandex_music import Client
 
-client = Client("her").init()
+
+token = ""
+f = open("integration_app/tk.txt", "r")
+token = f.read()
+
+client = Client(token).init()
 
 def index(req):
     return render(req, "index.html")
