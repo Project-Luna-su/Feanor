@@ -1,11 +1,12 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
-from integration_app import views as iner_views
-from login_app import views as login_views
+from apps import views as app
 
 urlpatterns = [
-    path('', iner_views.index),
-    path('listtrack/', iner_views.listTrack),
-    path("login/", login_views.index),
+    path("", app.index, name="home"),
+    path('testlog/', app.testlog),
+    path("artist/<str:artist>", app.artist),
+    path('integration/', app.integration),
+    path("integration/templink/", app.templink)
 ]

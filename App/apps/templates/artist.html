@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atrist</title>
+</head>
+<body>
+    <p>just evil = love (реклама лучшего канала в планете)</p>
+    <a href="https://t.me/WeJustEvil">just evil</a>
+    {% autoescape off %}
+    {{ name }}
+    {% endautoescape %} 
+    <h2>треки исполнителя</h2>
+    {% for track in tracks %}
+    <h2>{{ track }}</h2>
+    {% endfor %}
+</body>
+</html>

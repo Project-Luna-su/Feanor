@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+</head>
+<body>
+    {% autoescape off %}
+    {{ user_name }}
+    {% endautoescape %}
+    <form action="integration/">
+        <input type="submit" value="integration" />
+    </form>
+    {% for key, val in dict.items %}
+    <h1>{{ key }}</h1>
+        {% for track in val %}
+        <h2>{{ track }}</h2>
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>
