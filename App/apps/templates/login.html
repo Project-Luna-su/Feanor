@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static "login/music.css" %}">
+  <link rel="shortcut icon" href="{% static "login/ico.png" %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static "login/style.css" %}">
+  <title>Вход</title>
+</head>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form" method="post" action="testlog/">
+        {% csrf_token %}
+        <input id="usernamer" type="text" placeholder="имя пользователя", name="name" />
+        <input id="passwordr" type="password" placeholder="пароль" name="passwd"/>
+        <input id="mail" type="text" placeholder="mail" name="mail"/>
+        <button type="submit" id="reg">Создать</button>
+        <p class="message">Вы зарегистрированы? <a href="#">Войти</a></p>
+      </form>
+      <form class="login-form" method="post" action="testlog/">
+        {% csrf_token %}
+        <input id="usernamel" type="text" placeholder="имя пользователя" name="name"/>
+        <input id="passwordl" type="password" placeholder="пароль" name="passwd"/>
+        <button type="submit" id="login">Войти</button>
+        <p class="message">Нет аккаунта? <a href="#">Создать аккаунт</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+<script src="{% static "login/index.js" %}"></script>
+</html>
