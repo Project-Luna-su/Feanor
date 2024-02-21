@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
+html,
+body,
+html * {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+* {
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/cosmos.jpg");
+    background-position-x: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.title {
+    margin-top: 30%;
+}
+
+.bg-body-tertiary {
+    background-color: rgba(0, 0, 0, 0.397) !important;
+    backdrop-filter: blur(8px);
+}
+
+.buttons {
+    display: flex;
+    list-style-type: none;
+    cursor: default;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0.5rem;
+}
+
+.buttons li {
+    width: 30%;
+}
+
+.buttons li a {
+    max-width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.projabout {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.contprojabout {
+    margin-left: 3%;
+}
+
+.buttons.style1 {
+    gap: 1rem;
+    flex-direction: row;
+}
+
+.buttons.style1 li a {
+    display: inline-flex;
+    width: 100vw;
+    height: auto;
+    line-height: 2rem;
+    padding: 0 2rem;
+    font-size: 1.125em;
+    font-weight: 400;
+    border-radius: 2.5rem;
+    flex-direction: row-reverse;
+    padding-bottom: 1.25rem;
+    padding-top: 1.25rem;
+    transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.buttons.style1 li a svg {
+    fill: #dadada;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 2rem;
+    min-width: 16px;
+    width: 1.75em;
+    margin-left: 0.5em;
+    margin-right: calc(-0.125em + 0rem);
+    transition: fill 0.25s ease;
+}
+
+.buttons.style1 li a .label {
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left;
+    width: 100%;
+}
+
+.buttons.style1 .button {
+    background-color: #00388b57;
+    backdrop-filter: blur(8px);
+    color: #eee;
+}
+
+.buttons.style1 li a:hover {
+    transform: scale(1.0400);
+}
+
+.style1 a {
+    text-decoration: none;
+}
+
+
+@media (max-width: 830px) {
+    body {
+        background-size: 260%;
+    }
+
+    @media (max-width: 720px) {
+
+        .title {
+            margin-top: 60%;
+        }
+
+        .buttons li {
+            width: 100%;
+        }
+
+        .buttons.style1 {
+            gap: 1rem;
+            flex-direction: column;
+        }
+
+    }
+}
