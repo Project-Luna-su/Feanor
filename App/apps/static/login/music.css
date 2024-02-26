@@ -2,7 +2,7 @@
 
 body {
     overflow:visible;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/login/luna.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/assets/luna.png");
     background-attachment: fixed;
 }
 
