@@ -9,5 +9,6 @@ urlpatterns = [
     path("artist/<str:artist>", app.artist),
     path("playlist/<str:name>", app.playlist),
     path('integration/', app.integration),
-    path("integration/templink/", app.templink)
+    path("integration/templink/", app.templink),
+    path("main/", app.main, name="main"),
 ]

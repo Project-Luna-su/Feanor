@@ -127,7 +127,7 @@ def index(req):
 
 
         context = {
-            "user_name": f"<h1>{username}</h1>",
+            "user_name": f"{username}",
             "dict": dict
         }
 
@@ -158,6 +158,13 @@ def test(req):
     cursor.execute(f"SELECT listName FROM user_{'admin'}")
     print(cursor.fetchall())
     return HttpResponse("her")
+
+def main(req):
+   context = {
+            "user_name": f"<h1>{username}</h1>",
+            "dict": dict
+        }
+   return render(req, "main.html", context=context)
 
 
 def avtar(artist):

@@ -38,19 +38,49 @@
                         <div class="titleofmain">
                             <h2 class="text-white-50">Популярные треки</h2>
                         </div>
-                        <ul id="listofpopular" class="list-group list-group-flush">
+                        <ul id="listofpopular" class="list-group list-group-flush" style="height:100%; overflow: auto">
                             {% for track in tracks %}
                             <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
                                 src={{avatar_artist}} alt="album"><a id="trackname">{{track}}</a> <a
                                 class="text-white-50" id="authors">{{atrtist__name}}</a></li>
                             {% endfor %}
 
-                            <!-- <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                    src="/assets/ico.png" alt="album"><a id="trackname">Second of Wave</a> <a
+                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
                                     class="text-white-50" id="authors">Luna</a></li>
                             <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                    src="/assets/ico.png" alt="album"><a id="trackname">God of War</a> <a
-                                    class="text-white-50" id="authors">Luna</a></li> -->
+                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                    class="text-white-50" id="authors">Luna</a></li>
+                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                    class="text-white-50" id="authors">Luna</a></li>
+                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
+                                        class="text-white-50" id="authors">Luna</a></li>
+                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                        class="text-white-50" id="authors">Luna</a></li>
+                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                        class="text-white-50" id="authors">Luna</a></li>
+                                        <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
+                                            class="text-white-50" id="authors">Luna</a></li>
+                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                            class="text-white-50" id="authors">Luna</a></li>
+                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                            class="text-white-50" id="authors">Luna</a></li>
+                                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                                src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                                class="text-white-50" id="authors">Luna</a></li>
+                                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                                    class="text-white-50" id="authors">Luna</a></li>
+                                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                                        class="text-white-50" id="authors">Luna</a></li>
                         </ul>
                     </div>
                 </div>
@@ -87,6 +117,7 @@
             </div>
         </section>
     </main>
+    <script src="{% static "artist/music.js" %}"></script>
 </body>
 
 </html>

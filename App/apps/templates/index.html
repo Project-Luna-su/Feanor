@@ -1,22 +1,67 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainPage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "styles/music.css" %}">
+    <link rel="shortcut icon" href="{% static "assets/ico.png" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "artist/artist.css" %}">
+    <title>Luna Project: Music</title>
 </head>
-<body>
-    {% autoescape off %}
-    {{ user_name }}
-    {% endautoescape %}
-    <form action="integration/">
-        <input type="submit" value="integration" />
-    </form>
-    {% for key, val in dict.items %}
-    <h1>{{ key }}</h1>
-        {% for track in val %}
-        <h2>{{ track }}</h2>
-        {% endfor %}
-    {% endfor %}
+<body data-bs-theme="dark" id="background">
+    <main>
+        <section class="desktop">
+            <div class="titleofmain">
+                <h2>Admin</h2>
+            </div>
+            <div class="mainofmain">
+                <div id="backgroundartist" class="artistblock">
+                    <div class="block">
+                        <div class="artandtitle">
+                            <div class="avatar">
+                                <img id="avatarimg" src="https://i.vimeocdn.com/portrait/36013498_640x640" alt="author">
+                                <a id="nameofauthor" class="title">{{ user_name }}</a>
+
+                            </div>
+                            <div class="desc">
+                                <form action="integration/">
+                                    <input type="submit" value="integration" />
+                                </form>
+                                <a class="desctext text-white-50">
+                                    Обслуживаемый аккаунт. Технический.
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="minimumtracks">
+                        <div class="titleofmain">
+                            {% for key, val in dict.items %}
+                            <h3 id="nameofplaylist" style="user-select: all;" class="text-white-50">{{ key }}</h3>
+                            {% endfor %}
+                        </div>
+                        <ul id="listofpopular" class="list-group list-group-flush">
+                            {% for key, val in dict.items %}
+                                {% for track in val %}
+                                <h2 style="user-select:text;">{{ track }}</h2>
+                                {% endfor %}
+                            {% endfor %}
+                            <!-- <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                    src="{% static "assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
+                                    class="text-white-50" id="authors">Luna</a></li>
+                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                    src="{% static "assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
+                                    class="text-white-50" id="authors">Luna</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Подборки для меня как реклама-->
+    </main>
+    <script src="{% static "artist/music.js" %}"></script>
 </body>
+
 </html>
