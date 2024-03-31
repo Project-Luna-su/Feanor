@@ -1,30 +1,82 @@
-let currentMusic = 0;
+function profilepage() {
+    console.log("profile page");
+    $.ajax({
+        url: "profile/", // url запроса
+        method: 'GET',
+        dataType: 'html',
+        success: function (data) {
+            let parser = new DOMParser();
+            let dom_document = parser.parseFromString(data, "text/html");
 
-const music = document.getElementById('audio');
-const seekBar = document.getElementById('seekbar');
-const songName = document.getElementById('titleoftrack');
-const artistName = document.getElementById('authoroftrack');
-const disk = document.getElementById('albumimg');
-const currentTime = document.getElementById('currenttime');
-const musicDuration = document.getElementById('fulltime');
-const playBtn = document.getElementById('playbtn');
-const forwardBtn = document.getElementById('nextbtn');
-const backwardBtn = document.getElementById('prevbtn');
+            // Extract head and body elements
+            let head_element = dom_document.querySelector("head");
+            let body_element = dom_document.querySelector("body");
 
-playBtn.addEventListener('click', function () {
-    this.classList.toggle('playing');
-});
+            // Update head and body of the current page
+            $('head').html(head_element.innerHTML);
+            $('#page').html(body_element.innerHTML);
+        }
+    });
+}
+function mainpage() {
+    console.log("main page");
+    $.ajax({
+        url: "/", // url запроса
+        method: 'GET',
+        dataType: 'html',
+        success: function (data) {
+            let parser = new DOMParser();
+            let dom_document = parser.parseFromString(data, "text/html");
 
-function play() {
-    if (audio.paused || audio.ended) {
-        playBtn.title = "Pause";
-        audio.play()
-     } else {
-        playBtn.title = "Play";
-        audio.pause();
-     }
+            // Extract head and body elements
+            let head_element = dom_document.querySelector("head");
+            let body_element = dom_document.querySelector("body");
+
+            // Update head and body of the current page
+            $('head').html(head_element.innerHTML);
+            $('body').html(body_element.innerHTML);
+        }
+    });
 }
 
-playBtn.addEventListener('click', () => {
-    play()
-})
+function artistpage(name) {
+    console.log("artist page");
+    $.ajax({
+        url: "artist/" + name, // url запроса
+        method: 'GET',
+        dataType: 'html',
+        success: function (data) {
+            let parser = new DOMParser();
+            let dom_document = parser.parseFromString(data, "text/html");
+
+            // Extract head and body elements
+            let head_element = dom_document.querySelector("head");
+            let body_element = dom_document.querySelector("body");
+
+            // Update head and body of the current page
+            $('head').html(head_element.innerHTML);
+            $('#page').html(body_element.innerHTML);
+        }
+    });
+}
+
+function albumpage(name) {
+    console.log("album page");
+    $.ajax({
+        url: "album/" + name, // url запроса
+        method: 'GET',
+        dataType: 'html',
+        success: function (data) {
+            let parser = new DOMParser();
+            let dom_document = parser.parseFromString(data, "text/html");
+
+            // Extract head and body elements
+            let head_element = dom_document.querySelector("head");
+            let body_element = dom_document.querySelector("body");
+
+            // Update head and body of the current page
+            $('head').html(head_element.innerHTML);
+            $('#page').html(body_element.innerHTML);
+        }
+    });
+}

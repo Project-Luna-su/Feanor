@@ -29,7 +29,7 @@ html,
 body {
     height: 100%;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/cosmos.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("");
     background-position-x: center;
 }
 

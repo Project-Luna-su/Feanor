@@ -14,7 +14,7 @@
 <body>
   <div class="login-page">
     <div class="form">
-      <form class="register-form" method="post" action="testlog/">
+      <form class="register-form" method="post" action="/testlog/">
         {% csrf_token %}
         <input id="usernamer" type="text" placeholder="имя пользователя", name="name" />
         <input id="passwordr" type="password" placeholder="пароль" name="passwd"/>
@@ -22,7 +22,7 @@
         <button type="submit" id="reg">Создать</button>
         <p class="message">Вы зарегистрированы? <a href="#">Войти</a></p>
       </form>
-      <form class="login-form" method="post" action="testlog/">
+      <form class="login-form" method="post" action="/testlog/">
         {% csrf_token %}
         <input id="usernamel" type="text" placeholder="имя пользователя" name="name"/>
         <input id="passwordl" type="password" placeholder="пароль" name="passwd"/>

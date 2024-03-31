@@ -11,4 +11,5 @@ urlpatterns = [
     path('integration/', app.integration),
     path("integration/templink/", app.templink),
     path("main/", app.main, name="main"),
+    path("profile/", app.profile, name="profile"),
 ]

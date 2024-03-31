@@ -8,6 +8,19 @@ a{
     flex-direction: column;
 }
 
+.input-group .form-control{
+    background-color: rgba(0, 0, 0, 0.118);
+    backdrop-filter: blur(15px);
+}
+
+.desktop{
+    height: 85vh;
+}
+
+.title{
+    font-size:1.7rem;
+}
+
 .block{
     max-width: 300px;
 }
@@ -24,11 +37,11 @@ a{
     vertical-align: middle;
     width: 17rem;
     height: 17rem;
-    border-radius: 5px;
+    border-radius: 16px;
 }
 
 .artistblock{
-    border-radius: 7px;
+    border-radius: 24px;
     padding: 5px;
     display: flex;
     flex-direction: row;
@@ -40,27 +53,7 @@ a{
     margin-left: 1%;
     margin-right: 1%;
     width: 100%;
-    max-height: 358px;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f100; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+    max-height: 370px;
 }
 
 .list-group-item{
@@ -69,7 +62,7 @@ a{
 
 #albumimginlist{
     width: 2rem;
-    border-radius: 3px;
+    border-radius: 6px;
     margin-right: 3px;
 }
 

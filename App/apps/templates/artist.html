@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static "styles/music.css" %}">
     <link rel="shortcut icon" href="{% static "assets/ico.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static "artist/artist.css" %}">
-    <title>Luna Project: Music</title>
+    <title>Feanor: {{atrtist__name}} </title>
 </head>
 
 <body data-bs-theme="dark" id="background">
@@ -40,47 +40,10 @@
                         </div>
                         <ul id="listofpopular" class="list-group list-group-flush" style="height:100%; overflow: auto">
                             {% for track in tracks %}
-                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                            <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
                                 src={{avatar_artist}} alt="album"><a id="trackname">{{track}}</a> <a
-                                class="text-white-50" id="authors">{{atrtist__name}}</a></li>
+                                class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{atrtist__name}}')" id="authors">{{atrtist__name}}</a></li>
                             {% endfor %}
-
-                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
-                                    class="text-white-50" id="authors">Luna</a></li>
-                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                    class="text-white-50" id="authors">Luna</a></li>
-                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                    class="text-white-50" id="authors">Luna</a></li>
-                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
-                                        class="text-white-50" id="authors">Luna</a></li>
-                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                        class="text-white-50" id="authors">Luna</a></li>
-                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                        class="text-white-50" id="authors">Luna</a></li>
-                                        <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">Second of Wave</a> <a
-                                            class="text-white-50" id="authors">Luna</a></li>
-                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                            class="text-white-50" id="authors">Luna</a></li>
-                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                            src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                            class="text-white-50" id="authors">Luna</a></li>
-                                            <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                                src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                                class="text-white-50" id="authors">Luna</a></li>
-                                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                                    src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                                    class="text-white-50" id="authors">Luna</a></li>
-                                                    <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
-                                                        src="{% static "/assets/ico.png" %}" alt="album"><a id="trackname">God of War</a> <a
-                                                        class="text-white-50" id="authors">Luna</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +64,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Мне Нравится</h5>
                         <p class="card-text text-white-50">Треки которые мне нравится</p>
-                        <a id="playbtn" class="btn btn-primary">Играть</a>
+                        <a id="playbtn" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" class="btn btn-primary">Играть</a>
                     </div>
                 </div>
                 <div class="card select-album" style="width: 18rem;">
@@ -110,7 +73,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Luna Album</h5>
                         <p class="card-text text-white-50">Fake album</p>
-                        <a id="playbtn" class="btn btn-primary">Играть</a>
+                        <a id="playbtn" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" class="btn btn-primary">Играть</a>
                     </div>
                 </div>
                 

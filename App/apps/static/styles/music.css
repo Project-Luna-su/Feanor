@@ -7,9 +7,35 @@ body {
     text-decoration: none;
 }
 
+#sticky-footer{
+    bottom: 0;
+    position: relative;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000000; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 html {
     overflow: overlay;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/50/19/4b/50194b7860774d22f17c0bb2518f3bcd.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.764)), url("https://i.pinimg.com/originals/50/19/4b/50194b7860774d22f17c0bb2518f3bcd.png");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -27,14 +53,15 @@ html {
 }
 
 .player {
-    background-color: rgba(0, 0, 0, 0.267);
+    height: 4.2rem;
+    background-color: rgba(22, 22, 22, 0.796);
     backdrop-filter: blur(10px);
     position: fixed;
     bottom: 0;
     margin-bottom: 10px;
-    margin-left: 20%;
-    margin-right: 20%;
-    width: 60%;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
     border-radius: 9px 9px 9px 9px;
     z-index: 9;
 }
@@ -82,6 +109,53 @@ html {
     border-left-width: 14px;
 }
 
+.titleofmain, .users .user{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-profile{
+    width: 100%;
+    border: 0;
+    border-radius: 20px;
+    background-color: #000000a3;
+    backdrop-filter: blur(16px);
+}
+.user{
+    justify-content: space-between;
+}
+
+.btn-profile:hover{
+    background-color: #000000;
+}
+
+.btn-profile:active{
+    background-color: #1f1f1f !important;
+}
+
+.titleofmain h2{
+    margin-top: 1rem;
+}
+
+.users #nickname{
+    margin-top: 0.5rem;
+}
+
+.users{
+    border-radius: 15px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #373737a7;
+    backdrop-filter: blur(7px);
+}
+
+.avatar img{
+    width: 3rem;
+    height: 3rem;
+    margin: 5px;
+    border-radius: 50%;
+}
+
 .playbtn.playing span:last-of-type {
     height: 0;
     margin-left: -17px;
@@ -97,6 +171,13 @@ footer {
 .seekbar {
     position: fixed;
     margin-bottom: 10px;
+}
+
+nav{
+    padding: 5px;
+    padding-left: 5%;
+    background-color: #0000008d;
+    backdrop-filter: blur(10px);   
 }
 
 .seekbar {
@@ -122,6 +203,7 @@ footer {
 .albumimg img {
     height: 48px;
     border-radius: 6px;
+    margin-top: 5%;
 }
 
 .timeoftitle {
@@ -153,14 +235,22 @@ footer {
 }
 
 .playlists,
-.cardsofads {
-    display: grid;
+.cardsofads,
+.artisad,
+.usersad{
+    display: grid; 
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
+    grid-gap: 2px;
+}
+.timeoftitle{
+    margin-top: 9px;
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .infooftrack,
-.nameandtime {
+.nameandtime,
+.cardsofads {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -176,8 +266,13 @@ footer {
 
 .card-body,
 .card {
+    border-radius: 16px;
     background-color: rgba(0, 0, 0, 0.212);
     backdrop-filter: blur(15px);
+}
+
+.card img{
+    border-radius: 16px 16px 0 0;
 }
 
 .card {
@@ -194,12 +289,39 @@ footer {
 .desktop {
     padding-top: 1%;
     padding-bottom: 1%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.wave{
+    margin-top: calc(100% / 8 - 50px);
+}
+
+.roundcard{
+    margin: 15px;
+}
+
+.artavatar img{
+    width: 14rem;
+    height: 14rem;
+    border-radius: 100%;
+}
+
+#wavebtn{
+    border: 0;
+    border-radius: 15px;
+    width: 15%;
+    background-color: #1414ed75;
+    backdrop-filter: blur(16px);
+}
+
+#wavename{
+    font-size: 4rem;
 }
 
 .desktop {
     height: 80vh;
+    backdrop-filter: blur(10px);
 }
 
 .about h5 {

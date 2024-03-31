@@ -16,27 +16,31 @@ button {
 .form {
     position: relative;
     z-index: 1;
-    background: #35353596;
+    background: #030303b9;
     backdrop-filter: blur(7px);
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
     text-align: center;
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 24px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .form input {
     outline: none;
     font-family: "Roboto", sans-serif;
-    background: #ffffff7e;
+    background: #000000b3;
     width: 100%;
-    border: 0;
-    border-radius: 4px 4px 4px 4px;
+    border: 0;  
+    border-radius: 24px;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 18px;
+}
+
+.form input::placeholder{
+    color: #cbcbcb;
 }
 
 input:required {
@@ -48,12 +52,13 @@ input:required {
     outline: none;
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
-    background: #02006698;
+    background: #0300be8f;
     width: 100%;
+    backdrop-filter: blur(7px);
     border: 0;
     padding: 15px;
-    border-radius: 4px 4px 4px 4px;
-    color: #FFFFFF;
+    border-radius: 24px;
+    color: #cccccc;
     font-size: 18px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -73,7 +78,7 @@ input:required {
 }
 
 .form .message a {
-    color: #1f008f;
+    color: #9e92f7;
     text-decoration: none;
 }
 
@@ -82,6 +87,10 @@ input:required {
 }
 
 @media (max-width:720px) {
+    html{
+        background-size: auto;
+    }
+
     body {
         height: 100%;
     }
@@ -94,7 +103,7 @@ input:required {
 
     .form {
         color: #eee;
-        background-color: #9696965b;
+        background-color: #0000005b;
         padding-top: 50%;
         position: fixed;
         border-radius: 0 0 0 0;

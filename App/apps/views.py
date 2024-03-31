@@ -131,7 +131,7 @@ def index(req):
             "dict": dict
         }
 
-        return render(req, "index.html", context = context)
+        return render(req, "main.html", context = context)
     
 
 def artist(req, artist):
@@ -153,6 +153,36 @@ def artist(req, artist):
 
     return render(req, "artist.html", context=context)
 
+def profile(req):
+    if isLogin == False:
+        return render(req, "login.html")
+    else:
+        cursor.execute(f"SELECT * FROM user_{username}")
+        resp = cursor.fetchall()
+
+        dict = {}
+
+        for corteg in resp:
+            songs = {}
+
+            for song in str(corteg[1]).split(";"):
+                if song != "":
+                    songg = song.split(",")
+                    artist = songg[0].split("_")
+                    artist = ", ".join(artist)
+                    name_song = songg[1]
+
+                    songs.update({ artist.capitalize() : name_song.capitalize()})
+
+            dict[corteg[0]] = songs
+
+
+        context = {
+            "user_name": f"{username}",
+            "dict": dict
+        }
+
+        return render(req, "profile.html", context = context)
 
 def test(req):
     cursor.execute(f"SELECT listName FROM user_{'admin'}")

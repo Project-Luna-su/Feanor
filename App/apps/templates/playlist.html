@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static "styles/music.css" %}">
     <link rel="shortcut icon" href="{% static "assets/ico.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static "artist/artist.css" %}">
-    <title>Luna Project: Music</title>
+    <title>Feanor:  {{ pls_name }}</title>
 </head>
 <body data-bs-theme="dark" id="background">
     <main>
@@ -40,9 +40,9 @@
                         <ul id="listofpopular" class="list-group list-group-flush">
                             {% for key, val in dict.items %}
                                 {% for track, avatar in val.items %}
-                                <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
+                                <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
                                     src={{avatar}} alt="album"><a id="trackname">{{ track }}</a> <a
-                                    class="text-white-50" id="authors">{{key}}</a></li>
+                                    class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{key}}')" id="authors">{{key}}</a></li>
                                 {% endfor %}
                             {% endfor %}
                             <!-- <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"
