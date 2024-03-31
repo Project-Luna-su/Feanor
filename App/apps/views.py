@@ -11,7 +11,7 @@ token = ""
 f = open("apps/tk.txt", "r")
 token = f.read()
 
-client = Client(token).init()
+client = Client(token.replace("\n", "")).init()
 
 username = ""
 isLogin = False
@@ -172,10 +172,16 @@ def profile(req):
                     artist = ", ".join(artist)
                     name_song = songg[1]
 
+                    cursor.execute(f"SELECT avatar FROM Artist WHERE name = '{artist.lower()}'")
+                    resp1 = cursor.fetchall()
+                    avatar = resp1[0][0]
+
                     songs.update({ artist.capitalize() : name_song.capitalize()})
+                    print(songs)
 
             dict[corteg[0]] = songs
 
+        print(dict)
 
         context = {
             "user_name": f"{username}",
