@@ -49,11 +49,9 @@
                         </div>
                         <ul id="listofpopular" class="list-group list-group-flush">
                             {% for key, val in dict.items %}
-                                {% for name, track in val.items %}
-                                <!--<h2 style="user-select:text;">{{ track }}</h2>-->
-                                <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
-                                    src={{avatar_artist}} alt="album"><a id="trackname">{{track}}</a> <a
-                                    class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{name}}')" id="authors">{{name}}</a></li>
+                            <h1>{{ key }}</h1>
+                                {% for track in val %}
+                                <h2>{{ track }}</h2>
                                 {% endfor %}
                             {% endfor %}
                         </ul>
