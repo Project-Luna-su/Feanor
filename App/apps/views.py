@@ -56,9 +56,9 @@ def templink(req):
                     musc.append(name)
                     cursor.execute(f"UPDATE Artist SET music = '{','.join(musc)}' WHERE name = '{artName[idx_name]}'")
             else:
-                os.mkdir(f"music/{artName[idx_name]}")
+                os.mkdir(f"apps/static/music/{artName[idx_name]}")
                 cursor.execute(f"INSERT INTO Artist (name, music, avatar) VALUES ('{artName[idx_name]}', '{name}', 'https://{avatar_mas[idx_name]}')")
-            playlist_usr[i].fetch_track().download(f"music/{artName[idx_name]}/{name}.mp3")
+            playlist_usr[i].fetch_track().download(f"apps/static/music/{artName[idx_name]}/{name}.mp3")
     
     stroc_resp = ";".join(respons_mas)
     name_lst = "perenos" + str(playlist_id)+str(uid)
@@ -172,16 +172,10 @@ def profile(req):
                     artist = ", ".join(artist)
                     name_song = songg[1]
 
-                    cursor.execute(f"SELECT avatar FROM Artist WHERE name = '{artist.lower()}'")
-                    resp1 = cursor.fetchall()
-                    avatar = resp1[0][0]
-
                     songs.update({ artist.capitalize() : name_song.capitalize()})
-                    print(songs)
 
             dict[corteg[0]] = songs
 
-        print(dict)
 
         context = {
             "user_name": f"{username}",
