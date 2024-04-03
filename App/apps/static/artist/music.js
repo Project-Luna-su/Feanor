@@ -1,3 +1,4 @@
+audio = new Audio();
 function profilepage() {
     console.log("profile page");
     $.ajax({
@@ -79,4 +80,13 @@ function albumpage(name) {
             $('#page').html(body_element.innerHTML);
         }
     });
+}
+
+function play() {
+    return audio.paused ? audio.play() : audio.pause();
+}
+
+function isplay(artist,track) {
+    audio = new Audio("static/music/"+artist+"/"+track+".mp3");
+    return audio.paused ? audio.play() : audio.pause();
 }

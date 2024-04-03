@@ -1,4 +1,4 @@
-#!/home/svatoslav/Downloads/Feanor/venv/bin/python3
+#!/home/svatoslav/Documents/Feanor/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

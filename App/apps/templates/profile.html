@@ -4,11 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href=
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <script src=
+        "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+           </script>
     <link rel="stylesheet" href="{% static "styles/music.css" %}">
     <link rel="shortcut icon" href="{% static "assets/ico.png" %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static "artist/artist.css" %}">
+    <link rel="stylesheet" href="{% static "artist/profile.css" %}">
     <title>Feanor: {{user_name}} </title>
 </head>
 
@@ -20,75 +24,70 @@
             </div>
             <div class="mainofmain">
                 <div id="backgroundartist" class="artistblock">
-                    <div class="block">
-                        <div class="artandtitle">
-                            <div class="avatar">
-                                <img id="avatarimg" src={{user_name}} alt="author">
-                                <a id="nameofauthor" class="title">{{user_name}}</a>
-
-                            </div>
-                            <div class="desc">
+                    <div class="rowblock">
+                        <div class="avatar" align="center">
+                            <a id="nameofauthor" class="title"><img id="avatarimg" src="{% static "assets/senko.jpg"%}" alt="author">{{user_name}}</a>
+                        </div>
+                        <div class="desc">
+                            <div class="ymi">
                                 <b class="text-white-50">(Yandex.Music Integration)</b>
-                                <form method="post" action="/integration/templink/" class="input-group mb-3">
-                                    {% csrf_token %}
-                                    <input type="text" name="link" class="form-control" placeholder="Ссылка на Плейлист"
-                                        aria-label="Link to playlist" aria-describedby="button-addon2">
-                                    <input type="submit" value="Запрос" class="btn btn-outline-secondary" id="button-addon2"></input>
-                                </form>
+                            <form method="post" action="/integration/templink/" class="input-group mb-3">
+                                {% csrf_token %}
+                                <input type="text" name="link" class="form-control" placeholder="Ссылка на Плейлист"
+                                    aria-label="Link to playlist" aria-describedby="button-addon2">
+                                <input type="submit" value="Запрос" class="btn btn-outline-secondary" id="button-addon2"></input>
+                            </form>
+                            </div>
+                            <div class="descriptionprofile">
+                                <h4>Описание</h4>
                                 <a class="desctext text-white-50">
                                     Обслуживаемый аккаунт. Технический.
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="minimumtracks">
-                        <div class="titleofmain">
-                            {% for key, val in dict.items %}
-                            <h3 id="nameofplaylist" style="user-select: all;" class="text-white-50">{{ key }}</h3>
-                            {% endfor %}
-                        </div>
-                        <ul id="listofpopular" class="list-group list-group-flush">
-                            {% for key, val in dict.items %}
-                                {% for name, track in val.items %}
-                                <!--<h2 style="user-select:text;">{{ track }}</h2>-->
-                                <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
-                                    src={{avatar_artist}} alt="album"><a id="trackname">{{track}}</a> <a
-                                    class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{name}}')" id="authors">{{name}}</a></li>
-                                {% endfor %}
-                            {% endfor %}
-                        </ul>
+                    <div class="tabs-mus">
+                            <ul class="nav nav-tabs" role="tablist" id="myTab">
+                            <li class="nav-item">
+                              <a class="nav-link text-white-50 active" role="tab" data-bs-toggle="tab" href="#tracks">Треки</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-white-50" role="tab" data-bs-toggle="tab" href="#albums">Альбомы</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-white-50" role="tab" data-bs-toggle="tab" href="#subscribes">Подписки</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-white-50" role="tab" data-bs-toggle="tab" href="#playlists">Плейлисты</a>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div role="tabpanel" class="tab-pane fade show active" id="tracks">.f.</div>
+                            <div role="tabpanel" class="tab-pane fade" id="albums">.-.</div>
+                            <div role="tabpanel" class="tab-pane fade" id="subscribes">lz</div>
+                            <div role="tabpanel" class="tab-pane fade" id="playlists">
+                                <div class="playlists">
+                                    <div class="card select-album" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" style="width: 18rem;">
+                                        <img src="https://moewalls.com/wp-content/uploads/2023/07/jake-listening-to-music-in-the-rain-adventure-time-thumb.jpg"
+                                            class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Мне Нравится</h5>
+                                            <p class="card-text text-white-50">Треки которые мне нравится</p>
+                                        </div>
+                                    </div>
+                                    <div class="card select-album" style="cursor: pointer;" onclick="albumpage('{{album}}')" style="width: 18rem;">
+                                        <img src="https://catherineasquithgallery.com/uploads/posts/2021-02/1614290167_77-p-estetichnii-chernii-fon-92.jpg"
+                                            class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Luna Album</h5>
+                                            <p class="card-text text-white-50">Fake album</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!--Подборки для меня как реклама-->
-        <section class="ads">
-            <div class="titleofads">
-                <h2>Рекомендации и плейлисты</h2>
-            </div>
-            <div class="cardsofads">
-
-            </div>
-            <div class="playlists">
-                <div class="card select-album" style="width: 18rem;">
-                    <img src="https://moewalls.com/wp-content/uploads/2023/07/jake-listening-to-music-in-the-rain-adventure-time-thumb.jpg"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Мне Нравится</h5>
-                        <p class="card-text text-white-50">Треки которые мне нравится</p>
-                        <a id="playbtn" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" class="btn btn-primary">Играть</a>
-                    </div>
-                </div>
-                <div class="card select-album" style="width: 18rem;">
-                    <img src="https://catherineasquithgallery.com/uploads/posts/2021-02/1614290167_77-p-estetichnii-chernii-fon-92.jpg"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Luna Album</h5>
-                        <p class="card-text text-white-50">Fake album</p>
-                        <a id="playbtn" style="cursor: pointer;" onclick="albumpage('{{album}}')" class="btn btn-primary">Играть</a>
-                    </div>
-                </div>
-                
             </div>
         </section>
     </main>

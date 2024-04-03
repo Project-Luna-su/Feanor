@@ -49,13 +49,6 @@ a{
     backdrop-filter: blur(9px);
 }
 
-.minimumtracks{
-    margin-left: 1%;
-    margin-right: 1%;
-    width: 100%;
-    max-height: 370px;
-}
-
 .list-group-item{
     background: none;
 }

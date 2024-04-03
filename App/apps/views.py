@@ -11,7 +11,7 @@ token = ""
 f = open("apps/tk.txt", "r")
 token = f.read()
 
-client = Client(token).init()
+client = Client(token.replace("\n", "")).init()
 
 username = ""
 isLogin = False
@@ -56,9 +56,9 @@ def templink(req):
                     musc.append(name)
                     cursor.execute(f"UPDATE Artist SET music = '{','.join(musc)}' WHERE name = '{artName[idx_name]}'")
             else:
-                os.mkdir(f"music/{artName[idx_name]}")
+                os.mkdir(f"apps/static/music/{artName[idx_name]}")
                 cursor.execute(f"INSERT INTO Artist (name, music, avatar) VALUES ('{artName[idx_name]}', '{name}', 'https://{avatar_mas[idx_name]}')")
-            playlist_usr[i].fetch_track().download(f"music/{artName[idx_name]}/{name}.mp3")
+            playlist_usr[i].fetch_track().download(f"apps/static/music/{artName[idx_name]}/{name}.mp3")
     
     stroc_resp = ";".join(respons_mas)
     name_lst = "perenos" + str(playlist_id)+str(uid)
