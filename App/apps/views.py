@@ -142,7 +142,7 @@ def artist(req, artist):
     music = []
 
     for song in otv.split(","):
-        music.append(f"{arts.capitalize()} - {song.capitalize()}")
+        music.append(f"{song.capitalize()}")
 
 
     context = {
