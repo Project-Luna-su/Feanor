@@ -59,9 +59,9 @@ html {
     position: fixed;
     bottom: 0;
     margin-bottom: 10px;
-    margin-left: 30%;
-    margin-right: 30%;
-    width: 40%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
     border-radius: 9px 9px 9px 9px;
     z-index: 9;
 }
@@ -188,6 +188,7 @@ nav{
     background: azure;
     overflow: hidden;
     cursor: pointer;
+    transition: 345ms;
 }
 
 .text-white-50 {
@@ -203,11 +204,11 @@ nav{
 .albumimg img {
     height: 48px;
     border-radius: 6px;
-    margin-top: 5%;
 }
 
 .timeoftitle {
-    margin-top: 1%;
+    margin-top: 5%;
+    margin-left: 5px;
 }
 
 .controls,
@@ -217,11 +218,17 @@ nav{
     flex-direction: row;
 }
 
+.buttons,.albumimg{
+    margin-left: 1%;
+    margin-right: 2%;
+    padding-top: 3%
+}
+
 .controlsmain {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-right: 20px;
+    padding-left: 20px;
     padding-right: 20px;
 }
 
@@ -231,7 +238,7 @@ nav{
 }
 
 .titleoftrack {
-    margin: 4px;
+    margin-right: 4px;
 }
 
 .playlists,
@@ -242,14 +249,13 @@ nav{
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 2px;
 }
-.timeoftitle{
-    margin-top: 9px;
-    margin-left: 3rem;
-    margin-right: 3rem;
+
+.infooftrack{
+    display: flex;
+    flex-direction: row;
+    padding-top:5%;
 }
 
-.infooftrack,
-.nameandtime,
 .cardsofads {
     display: flex;
     flex-direction: column;
