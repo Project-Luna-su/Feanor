@@ -1,5 +1,5 @@
 @import url("style.css");
-
+@import url("controls/mediabar.css");
 *,
 html,
 body {
@@ -52,68 +52,6 @@ html {
     cursor: pointer;
 }
 
-.player {
-    height: 4.2rem;
-    background-color: rgba(22, 22, 22, 0.796);
-    backdrop-filter: blur(10px);
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 10px;
-    margin-left: 15%;
-    margin-right: 15%;
-    width: 70%;
-    border-radius: 9px 9px 9px 9px;
-    z-index: 9;
-}
-
-.playbtn {
-    margin-left: 5px;
-    margin-right: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.playbtn span {
-    width: 0;
-    height: 25px;
-    float: left;
-    border-style: solid;
-    border-color: transparent transparent transparent rgb(255, 255, 255);
-    border-width: 0 0 0 12px;
-    transition: .25s linear;
-    transition-property: height, border, margin;
-    zoom: 1.1;
-}
-
-.playbtn:hover span {
-    border-left-color: #222;
-}
-
-.playbtn span:first-of-type {
-    margin-right: 4px;
-}
-
-.playbtn.playing span {
-    border-top-width: 6px;
-    border-bottom-width: 6px;
-}
-
-.playbtn.playing span:first-of-type {
-    height: 12px;
-    border-left-width: 14px;
-}
-
-.titleofmain, .users .user{
-    display: flex;
-    flex-direction: row;
-}
-
 .btn-profile{
     width: 100%;
     border: 0;
@@ -156,21 +94,10 @@ html {
     border-radius: 50%;
 }
 
-.playbtn.playing span:last-of-type {
-    height: 0;
-    margin-left: -17px;
-    border-left-width: 14px;
-}
-
 footer {
     position: relative;
     background-color: black;
     height: 100px;
-}
-
-.seekbar {
-    position: fixed;
-    margin-bottom: 10px;
 }
 
 nav{
@@ -180,80 +107,8 @@ nav{
     backdrop-filter: blur(10px);   
 }
 
-.seekbar {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
-    border-radius: 9px 9px 0 0;
-    background: azure;
-    overflow: hidden;
-    cursor: pointer;
-    transition: 345ms;
-}
-
 .text-white-50 {
     text-decoration: none;
-}
-
-.seekbar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 1px;
-    box-shadow: -10000px 0 0 10000px rgba(238, 163, 0, 0.932);
-}
-
-.albumimg img {
-    height: 48px;
-    border-radius: 6px;
-}
-
-.timeoftitle {
-    margin-top: 5%;
-    margin-left: 5px;
-}
-
-.controls,
-.titleoftrack,
-.timeoftitle {
-    display: flex;
-    flex-direction: row;
-}
-
-.buttons,.albumimg{
-    margin-left: 1%;
-    margin-right: 2%;
-    padding-top: 3%
-}
-
-.controlsmain {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.controlstoright {
-    display: flex;
-    flex-direction: row;
-}
-
-.titleoftrack {
-    margin-right: 4px;
-}
-
-.playlists,
-.cardsofads,
-.artisad,
-.usersad{
-    display: grid; 
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 2px;
-}
-
-.infooftrack{
-    display: flex;
-    flex-direction: row;
-    padding-top:5%;
 }
 
 .cardsofads {

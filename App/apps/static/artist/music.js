@@ -99,7 +99,7 @@ function play() {
 function isplay(artist, track, image) {
     clearInterval(updateTimer);
     resetValues();
-    audio.src = "static/music/" + artist + "/" + track + ".mp3";
+    audio.src = "/static/music/" + artist + "/" + track + ".mp3";
     trackName.textContent = track;
     artistName.textContent = artist;
     albumimg.src = image;
