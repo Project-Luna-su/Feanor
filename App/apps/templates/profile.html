@@ -10,6 +10,10 @@
     <script src=
         "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
            </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+           integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
     <link rel="stylesheet" href="{% static "styles/music.css" %}">
     <link rel="shortcut icon" href="{% static "assets/ico.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static "artist/profile.css" %}">
@@ -17,6 +21,31 @@
 </head>
 
 <body data-bs-theme="dark" id="background">
+    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Настройки</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ymi">
+                    <b class="text-white-50">(Yandex.Music Integration)</b>
+                <form method="post" action="/integration/templink/" class="input-group mb-3">
+                    {% csrf_token %}
+                    <input type="text" name="link" class="form-control" placeholder="Ссылка на Плейлист"
+                        aria-label="Link to playlist" aria-describedby="button-addon2">
+                    <input type="submit" value="Запрос" class="btn btn-outline-secondary" id="button-addon2"></input>
+                </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Сохранить</button>
+            </div>
+          </div>
+        </div>
+      </div>
     <main>
         <section class="desktop">
             <div class="titleofmain">
@@ -29,20 +58,19 @@
                             <a id="nameofauthor" class="title"><img id="avatarimg" src="{% static "assets/senko.jpg"%}" alt="author">{{user_name}}</a>
                         </div>
                         <div class="desc">
-                            <div class="ymi">
-                                <b class="text-white-50">(Yandex.Music Integration)</b>
-                            <form method="post" action="/integration/templink/" class="input-group mb-3">
-                                {% csrf_token %}
-                                <input type="text" name="link" class="form-control" placeholder="Ссылка на Плейлист"
-                                    aria-label="Link to playlist" aria-describedby="button-addon2">
-                                <input type="submit" value="Запрос" class="btn btn-outline-secondary" id="button-addon2"></input>
-                            </form>
-                            </div>
-                            <div class="descriptionprofile">
-                                <h4>Описание</h4>
-                                <a class="desctext text-white-50">
+                            <div class="descriptionprofile" style="display: flex; flex-direction: row;">
+                                <div style="width: 60%;">
+                                    <h4>Описание</h4>
+                                    <a class="desctext text-white-50">
                                     Обслуживаемый аккаунт. Технический.
-                                </a>
+                                    </a>
+                                </div>
+                                <div class="d-flex" style="height: 300px; margin: 5px;">
+                                    <div class="vr"></div>
+                                </div>
+                                <div style="padding: 1%;">
+                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal">Профиль</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,7 +138,5 @@
             </div>
         </section>
     </main>
-    <script src="{% static "artist/music.js" %}"></script>
 </body>
-
 </html>

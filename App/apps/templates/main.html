@@ -73,8 +73,8 @@
                               </div>   
                               <div class="carousel-item">
                                 <div class="roundcard">
-                                    <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/егор летов')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
-                                    <a style="cursor: pointer;" onclick="loadpage('/artist/егор летов')" class="artistname"><h4>Radio Tapok</h4></a>
+                                    <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/vere dictum')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
+                                    <a style="cursor: pointer;" onclick="loadpage('/artist/vere dictum')" class="artistname"><h4>Radio Tapok</h4></a>
                                 </div>
                               </div>                       
                             </div>
@@ -120,7 +120,6 @@
                         <div class="card-body">
                             <h5 class="card-title">Мне Нравится</h5>
                             <p class="card-text text-white-50">Треки которые мне нравится</p>
-                            <a id="playbtn" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" class="btn btn-primary">Играть</a>
                         </div>
                     </div>
                 </div>
@@ -141,7 +140,7 @@
                             </div>
                             <div class="infooftrack">
                                 <a id="titleoftrack" class="titleoftrack">Luna</a>
-                                <a id="authoroftrack" class="authoroftrack text-white-50">FrostySF</a>  
+                                <a id="authoroftrack" class="authoroftrack text-white-50" style="cursor: pointer;" onclick="loadpage('/artist/'+document.querySelector('#authoroftrack').textContent)">FrostySF</a>  
                             </div>
                             <div class="timeoftitle">
                                 <a id="currenttime" class="firsttime text-white-50">00:00 </a>
