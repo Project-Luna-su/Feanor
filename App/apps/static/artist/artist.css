@@ -3,26 +3,21 @@ a{
     text-decoration: none;
 }
 
-.avatar,.block{
-    display: flex;
-    flex-direction: column;
-}
-
 .input-group .form-control{
     background-color: rgba(0, 0, 0, 0.118);
     backdrop-filter: blur(15px);
 }
 
 .desktop{
-    height: 85vh;
+    height: 100%;
 }
 
 .title{
     font-size:1.7rem;
 }
 
-.block{
-    max-width: 300px;
+.tab-content{
+    min-height: 20vh;
 }
 
 #playofpopular{
@@ -33,27 +28,32 @@ a{
     border-radius: 100%;
 }
 
+.card{
+    margin: 5px;
+}
+
 #avatarimg{
-    vertical-align: middle;
     width: 17rem;
     height: 17rem;
     border-radius: 16px;
 }
 
 .artistblock{
-    border-radius: 24px;
+    border-radius: 24px 24px 0 0;
     padding: 5px;
-    display: flex;
-    flex-direction: row;
     background-color: rgba(0, 0, 0, 0.733);
     backdrop-filter: blur(9px);
 }
 
-.minimumtracks{
+.rowblock{
+    display: flex;
+    flex-direction: row;
+}
+
+.desc{
     margin-left: 1%;
     margin-right: 1%;
     width: 100%;
-    max-height: 370px;
 }
 
 .list-group-item{

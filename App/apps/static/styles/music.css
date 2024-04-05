@@ -190,6 +190,11 @@ nav{
     border-radius: 100%;
 }
 
+.navprofile img{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 #wavebtn{
     border: 0;
     border-radius: 15px;

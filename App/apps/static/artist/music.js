@@ -75,7 +75,12 @@ function loadpage(url) {
 }
 
 function play() {
-    return audio.paused ? audio.play() : audio.pause();
+    if(audio.paused)
+    {
+        audio.play()
+    }else{
+        audio.pause()
+    }
 }
 
 function loop(){
