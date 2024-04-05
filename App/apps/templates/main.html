@@ -64,19 +64,17 @@
                     <h2>Артисты</h2>
                     <div class="artisad">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner">  
+                            {% for artl, val in artists.items %}
+                              {% for artu, avatr in val.items %}
                               <div class="carousel-item">
-                                <div class="roundcard">
-                                    <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/radio tapok')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
-                                    <a style="cursor: pointer;" onclick="loadpage('/artist/radio tapok')" class="artistname"><h4>Radio Tapok</h4></a>
-                                </div>
-                              </div>   
-                              <div class="carousel-item">
-                                <div class="roundcard">
-                                    <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/vere dictum')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
-                                    <a style="cursor: pointer;" onclick="loadpage('/artist/vere dictum')" class="artistname"><h4>Radio Tapok</h4></a>
-                                </div>
-                              </div>                       
+                                  <div class="roundcard">
+                                      <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/{{artl}}')" > <img src="{{avatr}}" alt="artist"></a>
+                                      <a style="cursor: pointer;" onclick="loadpage('/artist/{{artl}}')" class="artistname"><h4>{{artu}}</h4></a>
+                                  </div>
+                                </div>                       
+                              {% endfor %}
+                            {% endfor %}               
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -94,12 +92,14 @@
                     <div class="usersad">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
-                              <div class="carousel-item">
-                                <div class="roundcard">
-                                    <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/artist/radio tapok')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
-                                    <a style="cursor: pointer;" onclick="loadpage('/artist/radio tapok')" class="artistname"><h4>Radio Tapok</h4></a>
-                                </div>
-                              </div>                       
+                                {% for name, img in users.items %}
+                                <div class="carousel-item">
+                                    <div class="roundcard">
+                                        <a class="artavatar" style="cursor: pointer;" onclick="loadpage('/profile/{{name}}')" > <img src="{% static "assets/senko.jpg" %}" alt="artist"></a>
+                                        <a style="cursor: pointer;" onclick="loadpage('/profile/{{name}}')" class="artistname"><h4>{{name}}</h4></a>
+                                    </div>
+                                  </div>                       
+                              {% endfor %}                            
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -12,4 +12,5 @@ urlpatterns = [
     path("integration/templink/", app.templink),
     path("main/", app.main, name="main"),
     path("profile/", app.profile, name="profile"),
+    path("profile/<str:name>", app.profile_id, name="profile"),
 ]

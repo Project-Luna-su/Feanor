@@ -35,13 +35,14 @@ def templink(req):
 
     playlist_usr = client.users_playlists(playlist_id, user_id=uid).fetch_tracks()
     for i in range(len(playlist_usr)):
-        name = str(playlist_usr[i]["track"]["title"]).replace("'", " ").replace("_", " ").lower()
+        name = str(playlist_usr[i]["track"]["title"]).replace("'", " ").replace("_", " ").replace(",", ".").lower()
         artName = []
         avatar_mas = []
         for j in range(len(playlist_usr[i]["track"]["artists"])):            #кол-во артистов 
             avatar = str(playlist_usr[i]["track"]["artists"][j]["cover"]["uri"]).replace("%%", "400x400")
             artName.append(str(playlist_usr[i]["track"]["artists"][j]["name"]).replace("'", " ").replace("_", " ").lower())
             avatar_mas.append(avatar)
+            break
 
         respons_mas.append(f'{"_".join(artName)},{name}')
 
@@ -106,29 +107,26 @@ def index(req):
     if isLogin == False:
         return render(req, "login.html")
     else:
-        cursor.execute(f"SELECT * FROM user_{username}")
-        resp = cursor.fetchall()
+        artists = {}
+        users = {}
 
-        dict = {}
 
-        for corteg in resp:
-            songs = []
+        cursor.execute(f"SELECT * FROM set_Artist")
+        set_artist = cursor.fetchall()
 
-            for song in str(corteg[1]).split(";"):
-                if song != "":
-                    songg = song.split(",")
-                    artist = songg[0].split("_")
-                    artist = ", ".join(artist)
-                    name_song = songg[1]
+        cursor.execute(f"SELECT * FROM set_User")
+        set_user = cursor.fetchall()
 
-                    songs.append(f"{artist.capitalize()} - {name_song.capitalize()}")
-
-            dict[corteg[0]] = songs
-
+        for i in range(len(set_artist)):
+            artists[set_artist[i][0]] = {str(set_artist[i][0]).capitalize() : avtar(set_artist[i][0])}
+        
+        for i in range(len(set_user)):
+            users[set_user[i][0]] = {str(set_user[i][0])}
 
         context = {
             "user_name": f"{username}",
-            "dict": dict
+            "artists": artists,
+            "users" : users
         }
 
         return render(req, "main.html", context = context)
@@ -152,6 +150,35 @@ def artist(req, artist):
     }
 
     return render(req, "artist.html", context=context)
+
+def profile_id(req, name):
+    cursor.execute(f"SELECT * FROM user_{name}")
+    resp = cursor.fetchall()
+
+    dict = {}
+
+    for corteg in resp:
+        songs = {}
+
+        for song in str(corteg[1]).split(";"):
+            if song != "":
+                songg = song.split(",")
+                artist = songg[0].split("_")
+                artist = ", ".join(artist)
+                name_song = songg[1]
+
+                songs.update({ artist.capitalize() : name_song.capitalize()})
+
+        dict[corteg[0]] = songs
+
+
+    context = {
+        "user_name": f"{name}",
+        "dict": dict
+    }
+
+    return render(req, "profile.html", context = context)
+
 
 def profile(req):
     if isLogin == False:
