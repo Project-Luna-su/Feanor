@@ -1,3 +1,8 @@
+let updateTimer;
+var carouselWidth = $(".carousel-inner")[0].scrollWidth;
+var cardWidth = $(".carousel-item").width();
+var scrollPosition = 0;
+
 audio = new Audio();
 trackName = document.querySelector('#titleoftrack')
 artistName = document.querySelector('#authoroftrack')
@@ -7,10 +12,8 @@ curr_time = document.querySelector('#currenttime')
 total_duration = document.querySelector('#fulltime')
 seek_slider = document.querySelector('#seekbar')
 
-let updateTimer;
-
 function profilepage() {
-    console.log("profile page");
+    console.log("load page");
     $.ajax({
         url: "profile/", // url запроса
         method: 'GET',
@@ -50,31 +53,10 @@ function mainpage() {
     });
 }
 
-function artistpage(name) {
+function loadpage(url) {
     console.log("artist page");
     $.ajax({
-        url: "artist/" + name, // url запроса
-        method: 'GET',
-        dataType: 'html',
-        success: function (data) {
-            let parser = new DOMParser();
-            let dom_document = parser.parseFromString(data, "text/html");
-
-            // Extract head and body elements
-            let head_element = dom_document.querySelector("head");
-            let body_element = dom_document.querySelector("body");
-
-            // Update head and body of the current page
-            $('head').html(head_element.innerHTML);
-            $('#page').html(body_element.innerHTML);
-        }
-    });
-}
-
-function albumpage(name) {
-    console.log("album page");
-    $.ajax({
-        url: "album/" + name, // url запроса
+        url: url, // url запроса
         method: 'GET',
         dataType: 'html',
         success: function (data) {
@@ -96,6 +78,15 @@ function play() {
     return audio.paused ? audio.play() : audio.pause();
 }
 
+function loop(){
+    if(audio.loop){
+        audio.loop = false;
+    }
+    else{
+        audio.loop = true;
+    }
+}
+
 function isplay(artist, track, image) {
     clearInterval(updateTimer);
     resetValues();
@@ -114,6 +105,7 @@ function resetValues() {
     total_duration.textContent = "00:00";
     seek_slider.value = 0;
 }
+
 
 
 function seekTo() {
@@ -151,3 +143,19 @@ function seekUpdate() {
         total_duration.textContent = durationMinutes + ":" + durationSeconds;
     }
 }
+
+$(".carousel-control-next").on("click", function () {
+    if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
+        scrollPosition += cardWidth;  //update scroll position
+        $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600); //scroll left
+    }
+});
+$(".carousel-control-prev").on("click", function () {
+    if (scrollPosition > 0) {
+        scrollPosition -= cardWidth;
+        $(".carousel-inner").animate(
+            { scrollLeft: scrollPosition },
+            600
+        );
+    }
+});

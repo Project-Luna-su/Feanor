@@ -42,7 +42,7 @@
                                 {% for track, avatar in val.items %}
                                 <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
                                     src={{avatar}} alt="album"><a id="trackname" style="cursor: pointer;" onclick="isplay('{{key}}', '{{track}}', '{{avatar}}')">{{ track }}</a> <a
-                                    class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{key}}')" id="authors">{{key}}</a></li>
+                                    class="text-white-50" style="cursor: pointer;" onclick="loadpage('/artist/{{key}}')" id="authors">{{key}}</a></li>
                                 {% endfor %}
                             {% endfor %}
                             <!-- <li id="selectofmusic" class="list-group-item"><img id="albumimginlist"

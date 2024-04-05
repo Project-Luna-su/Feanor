@@ -42,7 +42,7 @@
                             {% for track in tracks %}
                             <li id="selectofmusic" class="list-group-item"><a id="numoftrack">{{forloop.counter}}  </a><img id="albumimginlist"
                                 src={{avatar_artist}} alt="album"><a style="cursor: pointer;" onclick="isplay('{{atrtist__name}}', '{{track}}', '{{avatar_artist}}')" id="trackname">{{track}}</a> <a
-                                class="text-white-50" style="cursor: pointer;" onclick="artistpage('{{atrtist__name}}')" id="authors">{{atrtist__name}}</a></li>
+                                class="text-white-50" style="cursor: pointer;" onclick="loadpage('/artist/{{atrtist__name}}')" id="authors">{{atrtist__name}}</a></li>
                             {% endfor %}
                         </ul>
                     </div>

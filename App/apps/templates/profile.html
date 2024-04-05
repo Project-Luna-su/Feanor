@@ -64,10 +64,29 @@
                           <div class="tab-content" id="myTabContent">
                             <div role="tabpanel" class="tab-pane fade show active" id="tracks">.f.</div>
                             <div role="tabpanel" class="tab-pane fade" id="albums">.-.</div>
-                            <div role="tabpanel" class="tab-pane fade" id="subscribes">lz</div>
+                            <div role="tabpanel" class="tab-pane fade" id="subscribes">
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                      <div class="carousel-item">
+                                        <div class="roundcard">
+                                            <a class="artavatar" style="cursor: pointer;" onclick="loadpage('artist/radio tapok')" > <img src="{%static "assets/senko.jpg "%}" alt="artist"></a>
+                                            <a style="cursor: pointer;" onclick="loadpage('/artist/radio tapok')" class="artistname"><h4>Radio Tapok</h4></a>
+                                        </div>
+                                      </div>                       
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
                             <div role="tabpanel" class="tab-pane fade" id="playlists">
                                 <div class="playlists">
-                                    <div class="card select-album" style="cursor: pointer;" onclick="albumpage('{{likealbum}}')" style="width: 18rem;">
+                                    <div class="card select-album" style="cursor: pointer;" onclick="loadpage('/album/{{likealbum}}')" style="width: 18rem;">
                                         <img src="https://moewalls.com/wp-content/uploads/2023/07/jake-listening-to-music-in-the-rain-adventure-time-thumb.jpg"
                                             class="card-img-top">
                                         <div class="card-body">
@@ -75,7 +94,7 @@
                                             <p class="card-text text-white-50">Треки которые мне нравится</p>
                                         </div>
                                     </div>
-                                    <div class="card select-album" style="cursor: pointer;" onclick="albumpage('{{album}}')" style="width: 18rem;">
+                                    <div class="card select-album" style="cursor: pointer;" onclick="loadpage('/album/{{likealbum}}')" style="width: 18rem;">
                                         <img src="https://catherineasquithgallery.com/uploads/posts/2021-02/1614290167_77-p-estetichnii-chernii-fon-92.jpg"
                                             class="card-img-top">
                                         <div class="card-body">
