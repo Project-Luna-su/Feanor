@@ -1,4 +1,4 @@
-# Feanor - we a music
+# Feanor - we are music
 ##### free music service with open source code
 ## Progress and status(Pre-Alpha)
 ![48%](https://progress-bar.dev/48) 
