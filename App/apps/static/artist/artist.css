@@ -14,6 +14,7 @@ a{
 
 .title{
     font-size:1.7rem;
+    white-space: nowrap;
 }
 
 .tab-content{

@@ -7,6 +7,9 @@ audio = new Audio();
 trackName = document.querySelector('#titleoftrack')
 artistName = document.querySelector('#authoroftrack')
 albumimg = document.querySelector('#albumimg')
+playbtn = document.querySelector('#playbtn')
+repeatbtn = document.querySelector('#repeatbtn')
+likebtn = document.querySelector("#likebtn")
 
 curr_time = document.querySelector('#currenttime')
 total_duration = document.querySelector('#fulltime')
@@ -78,18 +81,32 @@ function play() {
     if(audio.paused)
     {
         audio.play()
+        playbtn.innerHTML = '<i class="bi bi-pause-fill"></i>'
     }else{
         audio.pause()
+        playbtn.innerHTML = '<i class="bi bi-play-fill"></i>'
     }
 }
 
 function loop(){
     if(audio.loop){
         audio.loop = false;
+        repeatbtn.innerHTML = '<i class="bi bi-repeat"></i>'
     }
     else{
         audio.loop = true;
+        repeatbtn.innerHTML = '<i class="bi bi-repeat-1"></i>'
     }
+}
+
+function like(){
+    if(likebtn.innerHTML == '<i class="bi bi-star-fill"></i>'){
+        likebtn.innerHTML = '<i class="bi bi-star"></i>'
+    }
+    else{
+        likebtn.innerHTML = '<i class="bi bi-star-fill"></i>'
+    }
+
 }
 
 function isplay(artist, track, image) {
@@ -102,7 +119,14 @@ function isplay(artist, track, image) {
 
     updateTimer = setInterval(seekUpdate, 1000);
 
-    return audio.paused ? audio.play() : audio.pause();
+    if(audio.paused)
+    {
+        audio.play()
+        playbtn.innerHTML = '<i class="bi bi-pause-fill"></i>'
+    }else{
+        audio.pause()
+        playbtn.innerHTML = '<i class="bi bi-play-fill"></i>'
+    }
 }
 
 function resetValues() {

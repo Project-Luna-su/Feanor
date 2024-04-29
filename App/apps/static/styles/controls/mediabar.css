@@ -1,6 +1,6 @@
 
 .player {
-    height: 4.2rem;
+    height: 8%;
     background: linear-gradient(90deg,rgb(48, 48, 48), rgba(0, 0, 0, 0.321));
     backdrop-filter: blur(10px);
     position: fixed;
@@ -13,7 +13,6 @@
     margin-left: 5px;
     margin-right: 5px;
     cursor: pointer;
-    display: flex;
     align-items: center;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -32,34 +31,11 @@
     flex-direction: row;
 }
 
-.playbtn span {
-    width: 0;
-    height: 25px;
-    float: left;
-    border-style: solid;
-    border-color: transparent transparent transparent rgb(255, 255, 255);
-    border-width: 0 0 0 12px;
-    transition: .25s linear;
-    transition-property: height, border, margin;
-    zoom: 1.1;
-}
-
-.playbtn:hover span {
-    border-left-color: #222;
-}
-
-.playbtn span:first-of-type {
-    margin-right: 4px;
-}
-
-.playbtn.playing span {
-    border-top-width: 6px;
-    border-bottom-width: 6px;
-}
-
-.playbtn.playing span:first-of-type {
-    height: 12px;
-    border-left-width: 14px;
+.bi{
+    padding: 0;
+    margin: 0;
+    font-size: 2.5rem;
+    transition: width .6s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .titleofmain, .users .user{
@@ -67,22 +43,24 @@
     flex-direction: row;
 }
 
-.playbtn.playing span:last-of-type {
-    height: 0;
-    margin-left: -17px;
-    border-left-width: 14px;
+.albumimg, .infooftrack{
+    padding-top: 1rem;
+}
+
+.timeoftitle{
+    margin-top: 1.3rem;
 }
 
 .seekbar {
     position: fixed;
-    margin-bottom: 10px;
+    margin-bottom: 1%;
     -webkit-appearance: none;
     width: 100%;
-    height: 5px;
+    height: 5%;
     background: rgba(22, 22, 22, 0.796);
     overflow: hidden;
     cursor: pointer;
-    transition: 345ms;
+    transition: width .6s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 .seekbar::-webkit-slider-thumb {
@@ -120,9 +98,8 @@
 }
 
 .controlsmain {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .controlstoright {
@@ -135,9 +112,6 @@
     padding-right: 20px;
 }
 
-.timeoftitle{
-    padding-top: 2%;
-}
 
 .infooftrack a{
     white-space: nowrap;

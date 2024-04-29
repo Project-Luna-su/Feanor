@@ -112,9 +112,10 @@ footer {
 }
 
 nav{
-    padding: 5px;
+    padding: 0.5%;
     padding-left: 5%;
     padding-right: 5%;
+    height: 2.5%;
     display: flex; flex-direction: row; justify-content: space-between;
     background-color: #0000008d;
     backdrop-filter: blur(10px);   
