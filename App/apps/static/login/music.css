@@ -11,10 +11,10 @@ html * {
 
 html {
     overflow: overlay;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://i.pinimg.com/originals/50/19/4b/50194b7860774d22f17c0bb2518f3bcd.png");
-    background-attachment: fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://all-aforizmy.ru/wp-content/uploads/2022/02/scale_1200-8.jpg");
+    background-attachment:fixed;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size:cover;
 }
 
 .select-album:hover {

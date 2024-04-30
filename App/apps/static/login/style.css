@@ -88,7 +88,7 @@ input:required {
 
 @media (max-width:720px) {
     html{
-        background-size: auto;
+        background-size: cover;
     }
 
     body {

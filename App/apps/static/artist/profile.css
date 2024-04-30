@@ -79,3 +79,40 @@ a{
 #selectofmusic:hover{
     background-color: rgba(255, 255, 255, 0.39);
 }
+
+.low-picture    {
+    display: none;
+}
+
+@media (max-width: 720px) {
+    .big-picture{
+        display: none;
+    }
+
+    .low-picture{
+        display: initial;
+    }
+
+    .rowblock{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .playlists{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .select-album{
+        margin: 1%;
+        width: 99%!important;
+    }
+
+    .descriptionprofile{
+        flex-direction: column !important;
+    }
+
+    .prof{
+        width: 92%;
+    }
+}

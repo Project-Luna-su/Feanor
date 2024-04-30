@@ -70,3 +70,20 @@ a{
 #selectofmusic:hover{
     background-color: rgba(255, 255, 255, 0.39);
 }
+
+@media (max-width: 720px) {
+    .rowblock{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .playlists{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .select-album{
+        margin: 1%;
+        width: 99%!important;
+    }
+}

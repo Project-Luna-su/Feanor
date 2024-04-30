@@ -1,7 +1,4 @@
 let updateTimer;
-var carouselWidth = $(".carousel-inner")[0].scrollWidth;
-var cardWidth = $(".carousel-item").width();
-var scrollPosition = 0;
 
 audio = new Audio();
 trackName = document.querySelector('#titleoftrack')
@@ -52,6 +49,7 @@ function mainpage() {
             // Update head and body of the current page
             $('head').html(head_element.innerHTML);
             $('#page').html(body_element.innerHTML);
+            loadOwl();
         }
     });
 }
@@ -73,37 +71,55 @@ function loadpage(url) {
             // Update head and body of the current page
             $('head').html(head_element.innerHTML);
             $('#page').html(body_element.innerHTML);
+            loadOwl();
+        },
+        error: function (jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('Not connect. Verify Network.');
+            } else if (jqXHR.status == 404) {
+                alert('Requested page not found (404).');
+            } else if (jqXHR.status == 500) {
+                url = "/profile/" + url.split("/")[2]
+                loadpage(url);
+            } else if (exception === 'parsererror') {
+                alert('Requested JSON parse failed.');
+            } else if (exception === 'timeout') {
+                alert('Time out error.');
+            } else if (exception === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error. ' + jqXHR.responseText);
+            }
         }
     });
 }
 
 function play() {
-    if(audio.paused)
-    {
+    if (audio.paused) {
         audio.play()
         playbtn.innerHTML = '<i class="bi bi-pause-fill"></i>'
-    }else{
+    } else {
         audio.pause()
         playbtn.innerHTML = '<i class="bi bi-play-fill"></i>'
     }
 }
 
-function loop(){
-    if(audio.loop){
+function loop() {
+    if (audio.loop) {
         audio.loop = false;
         repeatbtn.innerHTML = '<i class="bi bi-repeat"></i>'
     }
-    else{
+    else {
         audio.loop = true;
         repeatbtn.innerHTML = '<i class="bi bi-repeat-1"></i>'
     }
 }
 
-function like(){
-    if(likebtn.innerHTML == '<i class="bi bi-star-fill"></i>'){
+function like() {
+    if (likebtn.innerHTML == '<i class="bi bi-star-fill"></i>') {
         likebtn.innerHTML = '<i class="bi bi-star"></i>'
     }
-    else{
+    else {
         likebtn.innerHTML = '<i class="bi bi-star-fill"></i>'
     }
 
@@ -119,11 +135,10 @@ function isplay(artist, track, image) {
 
     updateTimer = setInterval(seekUpdate, 1000);
 
-    if(audio.paused)
-    {
+    if (audio.paused) {
         audio.play()
         playbtn.innerHTML = '<i class="bi bi-pause-fill"></i>'
-    }else{
+    } else {
         audio.pause()
         playbtn.innerHTML = '<i class="bi bi-play-fill"></i>'
     }
@@ -173,18 +188,55 @@ function seekUpdate() {
     }
 }
 
-$(".carousel-control-next").on("click", function () {
-    if (scrollPosition < (carouselWidth - cardWidth * 4)) { //check if you can go any further
-        scrollPosition += cardWidth;  //update scroll position
-        $(".carousel-inner").animate({ scrollLeft: scrollPosition }, 600); //scroll left
-    }
-});
-$(".carousel-control-prev").on("click", function () {
-    if (scrollPosition > 0) {
-        scrollPosition -= cardWidth;
-        $(".carousel-inner").animate(
-            { scrollLeft: scrollPosition },
-            600
-        );
-    }
-});
+function loadOwl() {
+    var owl = $('#artistisowl');
+    var owlu = $('#userisowl');
+    $.ajaxSetup({ cache: false });
+    $(document).ready(function () {
+        if ($(window).width() < 1000) {
+            if ($(window).width() < 700) {
+                if ($(window).width() < 500) {
+                    $(".owl-carousel").owlCarousel({
+                        items: 2,
+                        loop: true,
+                    });
+                } else {
+                    $(".owl-carousel").owlCarousel({
+                        items: 3,
+                        loop: true,
+                    });
+                }
+            }
+            else {
+                $(".owl-carousel").owlCarousel({
+                    items: 3,
+                    loop: true,
+                });
+            }
+        }
+        else {
+            $(".owl-carousel").owlCarousel({
+                items: 6,
+                loop: true,
+            });
+        }
+        owl.on('mousewheel', '.owl-stage', function (e) {
+            if (e.deltaY > 0) {
+                owl.trigger('next.owl');
+            } else {
+                owl.trigger('prev.owl');
+            }
+            e.preventDefault();
+        });
+        owlu.on('mousewheel', '.owl-stage', function (e) {
+            if (e.deltaY > 0) {
+                owlu.trigger('next.owl');
+            } else {
+                owlu.trigger('prev.owl');
+            }
+            e.preventDefault();
+        });
+    });
+}
+
+loadOwl();

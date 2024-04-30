@@ -1,5 +1,6 @@
 @import url("style.css");
 @import url("controls/mediabar.css");
+
 *,
 html,
 body {
@@ -7,7 +8,7 @@ body {
     text-decoration: none;
 }
 
-#sticky-footer{
+#sticky-footer {
     bottom: 0;
     position: relative;
 }
@@ -16,32 +17,32 @@ body {
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #000000; 
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 
 html {
     overflow: overlay;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.764)), url("https://i.pinimg.com/originals/50/19/4b/50194b7860774d22f17c0bb2518f3bcd.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.764)), url("https://all-aforizmy.ru/wp-content/uploads/2022/02/scale_1200-8.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
-.navprofile{
+.navprofile {
     display: flex;
     flex-direction: row;
 }
@@ -57,50 +58,51 @@ html {
     cursor: pointer;
 }
 
-.btn-profile{
+.btn-profile {
     width: 100%;
     border: 0;
     border-radius: 20px;
     background-color: #000000a3;
     backdrop-filter: blur(16px);
 }
-.user{
+
+.user {
     justify-content: space-between;
 }
 
-.btn-profile:hover{
+.btn-profile:hover {
     background-color: #000000;
 }
 
-.btn-profile:active{
+.btn-profile:active {
     background-color: #1f1f1f !important;
 }
 
-.titleofmain h2{
+.titleofmain h2 {
     margin-top: 1rem;
 }
 
-.users #nickname{
+.users #nickname {
     margin-top: 0.5rem;
 }
 
-.users{
+.users {
     border-radius: 15px;
     margin: 5px;
     padding: 5px;
-    background-color: #373737a7;
+    background-color: #37373754;
     backdrop-filter: blur(7px);
 }
 
-.avatar img{
+.avatar img {
     width: 3rem;
     height: 3rem;
     margin: 5px;
     border-radius: 50%;
 }
 
-.playlists{
-    display: grid; 
+.playlists {
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 2px;
 }
@@ -111,14 +113,16 @@ footer {
     height: 100px;
 }
 
-nav{
+nav {
     padding: 0.5%;
     padding-left: 5%;
     padding-right: 5%;
     height: 2.5%;
-    display: flex; flex-direction: row; justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #0000008d;
-    backdrop-filter: blur(10px);   
+    backdrop-filter: blur(10px);
 }
 
 .text-white-50 {
@@ -146,7 +150,7 @@ nav{
     backdrop-filter: blur(15px);
 }
 
-.card img{
+.card img {
     border-radius: 16px 16px 0 0;
 }
 
@@ -168,7 +172,7 @@ nav{
     padding-right: 5%;
 }
 
-.wave{
+.wave {
     margin-top: calc(100% / 8 - 50px);
 }
 
@@ -177,7 +181,7 @@ nav{
     text-align: center;
 }
 
-.roundcard h4{
+.roundcard h4 {
     margin-left: 1rem;
 }
 
@@ -185,18 +189,18 @@ nav{
     width: 14rem;
 }
 
-.artavatar img{
+.artavatar img {
     width: 14rem;
     height: 14rem;
     border-radius: 100%;
 }
 
-.navprofile img{
+.navprofile img {
     width: 2.5rem;
     height: 2.5rem;
 }
 
-#wavebtn{
+#wavebtn {
     border: 0;
     border-radius: 15px;
     width: 15%;
@@ -204,7 +208,7 @@ nav{
     backdrop-filter: blur(16px);
 }
 
-#wavename{
+#wavename {
     font-size: 4rem;
 }
 
@@ -229,30 +233,45 @@ button {
     box-shadow: none;
 }
 
-
-
-@media (min-width: 768px) {
-    .carousel-inner {
-      display: flex;
-    }
-    .carousel-item {
-      margin-right: 0;
-      flex: 0 0 20%;
-      display: block;
-    }
-  }
-  .carousel-inner{
-    padding: 1em;
-}
-.carousel-control-prev, .carousel-control-next{
-    background-color: #e1e1e1;
-    width: 6vh;
-    height: 6vh;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.desc .btn{
+.desc .btn {
     max-height: 2.5rem;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .big-picture {
+        display: none !important;
+    }
+
+    #wavename {
+        font-size: 2rem;
+    }
+
+    #wavebtn {
+        width: 45%;
+    }
+
+    .wave {
+        margin-top: calc(100% / 2);
+        margin-bottom: calc(100% / 2);
+    }
+
+    .roundcard a {
+        margin: 15px;
+        text-align: center;
+    }
+    
+    .roundcard h4 {
+        margin-left: 1rem;
+    }
+    
+    .roundcard{
+        width: 9rem;
+    }
+    
+    .artavatar img {
+        width: 9rem;
+        height: 9rem;
+        border-radius: 100%;
+    }
 }
